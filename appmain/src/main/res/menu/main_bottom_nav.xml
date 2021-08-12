@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_flow"
+        android:icon="@drawable/ic_location_on_black_24dp"
+        android:orderInCategory="100"
+        android:title="@string/nav_bot_1" />
+    <item
+        android:id="@+id/onboarding_flow"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:orderInCategory="250"
+        android:title="@string/nav_bot_2" />
+    <item
+        android:id="@+id/launcher_flow"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:orderInCategory="400"
+        android:title="@string/nav_bot_3" />
+</menu>

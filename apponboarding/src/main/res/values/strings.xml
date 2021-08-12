@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">MyDezigner OnBoarding</string>
+    <string name="project">Project</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="overview">Overview</string>
+    <string name="search">Search</string>
+    <string name="goals">Goals</string>
+
+    //permission
+    <string name="permission_thanks_storage">Storage Permission Granted, Thank you!</string>
+    <string name="permission_thanks_location">Location Permission Granted, Thank you!</string>
+    <string name="permission_request_storage">No Permission Granted: Requesting now…</string>
+    <string name="permission_request_location">Please give us permission to access the location!</string>
+    <string name="permission_granted_gallery"><![CDATA[Permission is granted after the Image is Clicked! -> Opening Gallery]]></string>
+    <string name="permission_denied_gallery">Permission is denied after the Image is Clicked!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="create_an_entry">Create an entry</string>
+    <string name="title_activity_login" translatable="false">LoginActivity</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
+    <string name="mydezigner_logo" translatable="false">MyDezigner Logo</string>
+    <string name="login_to_mydezigner">Login to MyDezigner</string>
+    <string name="haven_t_sign_up_yet">Haven\'t Sign up yet?</string>
+    <string name="sign_up_here">Sign up here</string>
+    <string name="log_in_with_email">Log in with Email</string>
+    <string name="log_in_with_google">Log in with google</string>
+    <string name="placeholder">Placeholder</string>
+    <string name="email_login_hint">An email associated with a MyDezigner account</string>
+    <string name="email">Email</string>
+    <string name="back">Back</string>
+    <string name="password">Password</string>
+    <string name="password_login_hint">The password associated with the email</string>
+    <string name="invalid_email">Invalid Email</string>
+    <string name="invalid_username">Invalid Username</string>
+    <string name="hint_password_enter_again">Enter your password again</string>
+    <string name="hint_password_repeat_register">Confirm your password</string>
+    <string name="hint_password_register">At least 6 characters</string>
+    <string name="register_a_new_account">Register a new MyDezigner Account</string>
+    <string name="tell_us_your_email">Tell us your Email Address</string>
+    <string name="error_email_invalid_already_taken">This Email has already been taken! :(</string>
+    <string name="error_username_invalid_already_taken">This username has already been taken! :(</string>
+    <string name="email_is_ready">You can use this email!</string>
+    <string name="username_is_ready">You can use this username!</string>
+    <string name="register_passwords_not_identical">The passwords are not identical!</string>
+    <string name="register_password_too_short">The length must be greater than 6 characters!</string>
+    <string name="password_error_no_space">A password cannot contain a white space.</string>
+    <string name="password_error_null">You haven\'t enter any password!</string>
+    <string name="password_error_too_short">A password must have at least 6 characters.</string>
+    <string name="password_error_too_long">A password must have at most 30 characters.</string>
+    <string name="specify_your_password">Specify your password</string>
+    <string name="login_enter_email_password">Enter your Email and Password</string>
+    <string name="error">Error</string>
+    <string name="logged_in">Logged in the user</string>
+    <string name="password_valid">The Password is valid!</string>
+    <string name="error_sorry_cant_login">Can\'t log you in, sorry!</string>
+    <string name="login_has_account_already">Already have an account?</string>
+    <string name="login_here">Login here</string>
+    <string name="login_error_too_many_attempts">Too many login attempts!</string>
+    <string name="confirm">confirm</string>
+    <string name="username">Username</string>
+    <string name="username_login_hint">Enter a username to use it for your account!</string>
+    <string name="hint_username_error_no_space">A username cannot contain a whitespace.</string>
+    <string name="customize_your_account">Personalize your Account!</string>
+    <string name="set_your_username_and_image">Set your username and profile image</string>
+    <string name="logout">Log out</string>
+    <string name="your_profile">Your Profile</string>
+    <string name="dialog_logout_confirmation_ask">Are you sure you want to Log out?</string>
+    <string name="dialog_logout_confirmation_message">After logging out, you will return to the landing page of the app. You will have to enter your email and password to login again.</string>
+    <string name="customize_error_updating">Error getting updating your profile!</string>
+    <string name="customize_image_selected">A profile image selected!</string>
+    <string name="register_error_email_badly_formatted">Badly formatted Email!! Please go back and edit your password!</string>
+
+
+</resources>

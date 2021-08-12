@@ -1,0 +1,112 @@
+plugins {
+    id("com.android.library")
+    id("kotlin-android")
+    id("kotlin-parcelize")
+    id("kotlin-kapt")
+    id("androidx.navigation.safeargs.kotlin")
+//    id 'com.google.gms.google-services'
+}
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+//        applicationId "com.svayantra.apponboarding"
+        minSdkVersion 26
+        targetSdkVersion 30
+//        versionCode 1
+//        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation(project(":appnavigation"))
+//    implementation project(path: ':appcore')
+//    implementation project(path: ':appdomain')
+//    implementation project(path: ':apputils')
+    implementation project(path: ':appremote')
+
+    //common between app and feature module
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion"
+
+    implementation "androidx.core:core-ktx:$androidcorektxVersion"
+
+    implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation "com.google.android.material:material:$appcompatVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
+
+    //common between feature module and navigation
+    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:$lifecycleVersion"
+
+    implementation 'androidx.annotation:annotation:1.2.0'
+
+    //UI databinding
+//    kapt "androidx.databinding:databinding-compiler-common:${kotlinDataBindingVersion}"
+    implementation "androidx.databinding:databinding-runtime:${kotlinDataBindingVersion}"
+
+    //images loading - Glide
+    implementation "com.github.bumptech.glide:glide:4.12.0"
+
+    // Firebase
+    implementation platform("com.google.firebase:firebase-bom:28.0.1")
+    implementation "com.google.firebase:firebase-auth-ktx"
+    implementation "com.google.firebase:firebase-storage-ktx"
+    implementation 'com.google.firebase:firebase-database-ktx'
+
+//    // FirebaseUI for Firebase Realtime Database
+//    implementation 'com.firebaseui:firebase-ui-database:7.1.1'
+//    implementation 'com.firebaseui:firebase-ui-firestore:7.1.1'
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+    implementation 'com.firebaseui:firebase-ui-storage:7.1.1'
+
+    // WorkManager
+ //   implementation "android.arch.work:work-runtime-ktx:1.0.1"
+ //   implementation "androidx.work:work-rxjava2:2.3.4"
+
+    //rxjava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    // Jake Wharton's RxBindings 2
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.2.0'
+
+    // Circular ImageView
+    implementation 'com.mikhaellopez:circularimageview:4.3.0'
+    implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
+
+    // Circular ImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+
+//apply plugin: 'com.google.gms.google-services'

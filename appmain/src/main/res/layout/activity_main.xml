@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+<!--<androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context="com.memandis.project.main.MainActivity">-->
+
+<!--    <androidx.drawerlayout.widget.DrawerLayout-->
+<!--        android:id="@+id/drawer_main"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:fitsSystemWindows="true">-->
+
+<!--        &lt;!&ndash; Layout to contain contents of main body of screen-->
+<!--        (drawer will slide over this) &ndash;&gt;-->
+<!--        <include layout="@layout/content_main" android:id="@+id/content_main"/>-->
+
+<!--        &lt;!&ndash; Container for contents of drawer - use NavigationView to make configuration easier &ndash;&gt;-->
+<!--        <com.google.android.material.navigation.NavigationView-->
+<!--            android:id="@+id/serviceNavHostFragment"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="start"-->
+<!--            android:fitsSystemWindows="true"-->
+<!--            app:headerLayout="@layout/activity_navigation"-->
+<!--            app:menu="@menu/nav_menu_drawer">-->
+<!--&lt;!&ndash;        bind:user="@{viewModel.user}"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:headerLayout="@layout/activity_nav_drawer_main"&ndash;&gt;-->
+<!--            <include layout="@layout/activity_nav_drawer_main"-->
+<!--                      android:id="@+id/drawer_header"-->
+<!--                      bind:user="@{user}"/>-->
+<!--        </com.google.android.material.navigation.NavigationView>-->
+
+<!--    </androidx.drawerlayout.widget.DrawerLayout>-->
+
+<!--    &lt;!&ndash; Main content &ndash;&gt;-->
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/mainNavHostFragment"-->
+<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:defaultNavHost="true"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"-->
+<!--        app:navGraph="@navigation/home_flow" />-->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mainNavHostFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/home_flow" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        app:itemIconTint="@drawable/btm_nav_menu_selector"
+        app:itemTextColor="@drawable/btm_nav_menu_selector"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</FrameLayout>
+
+<!--        <androidx.fragment.app.FragmentContainerView-->
+<!--            android:id="@+id/mainNavHostFragment"-->
+<!--            android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:defaultNavHost="true"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:navGraph="@navigation/home_flow" />-->
+<!---->
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+

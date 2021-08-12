@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+
+    compileSdkVersion 30
+
+    defaultConfig {
+        applicationId "com.memandis.appservice"
+        minSdkVersion 26
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+//        dataBinding = true
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation project(":appnavigation")
+    implementation  project(':apponboarding')
+    implementation  project(':appmain')
+    implementation  project(':appremote')
+    implementation  project(':applocal')
+
+    //app
+    implementation "androidx.appcompat:appcompat:${appcompatVersion}"
+    // For loading and tinting drawables on older versions of the platform
+    implementation "androidx.appcompat:appcompat-resources:${appcompatVersion}"
+    implementation "com.google.android.material:material:$appcompatVersion"
+
+    // Firebase
+    implementation platform("com.google.firebase:firebase-bom:28.0.1")
+    implementation "com.google.firebase:firebase-auth-ktx"
+
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:${lifecycleRuntimeVersion}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-common-java8:${lifecycleVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+
+//    implementation 'androidx.multidex:multidex:2.0.1'
+
+//    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+
+    //inject
+    implementation "javax.inject:javax.inject:$javaInjectVersion"
+
+    //login
+    implementation("androidx.datastore:datastore-preferences-core:1.0.0-beta02")
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+}
+
+apply plugin: 'com.google.gms.google-services'

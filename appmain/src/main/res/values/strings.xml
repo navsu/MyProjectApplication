@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mydezigner Service</string>
+    <string name="project">project</string>
+    <string name="login">login</string>
+    <string name="dashboard">dashboard</string>
+
+    //firebase
+    <string name="default_web_client_id" translatable="false">831072303749-2f5fl8bg65t0i4s9grlo8ckchkr2o202.apps.googleusercontent.com</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBvxwq-t8dLGJO13GHyAWf9ku4IrAnoycE</string>
+    <string name="gcm_defaultSenderId" translatable="false">831072303749</string>
+    <string name="project_id" translatable="false">appservice-eb5e1</string>
+    <string name="google_api_key" translatable="false">AIzaSyBvxwq-t8dLGJO13GHyAWf9ku4IrAnoycE</string>
+    <string name="google_app_id" translatable="false">1:831072303749:android:0fb55d0133645dfd2287ec</string>
+    <string name="firebase_database_url" translatable="false">https://appservice-eb5e1-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+    <string name="google_storage_bucket" translatable="false">appservice-eb5e1.appspot.com</string>
+
+    //Services
+    <string name="title_activity_service">Services Activity</string>
+    <string name="services_text">Select a service</string>
+    <string name="services_content">Services\nCONTENT</string>
+
+    //Project
+    <string name="project_info">Enter Project Details</string>
+    <string name="project_name">Project Title</string>
+    <string name="project_details">Share your idea</string>
+    <string name="project_videos"> VIDEOS | 0 CHATS</string>
+    <string name="project_service"> Select Designer and service plan</string>
+
+    <string name="overview">Overview</string>
+    <string name="search">Search</string>
+    <string name="goals">Goals</string>
+
+
+    //bottomnav
+    <string name="nav_bot_1">Home</string>
+    <string name="nav_bot_2">Onboarding</string>
+    <string name="nav_bot_3">Launcher</string>
+
+        //drawer menu
+        <string name="nav_settings">Settings</string>
+        <string name="nav_languages">Languages</string>
+        <string name="nav_contactus">Contact US</string>
+        <string name="nav_help">Help</string>
+        <string name="nav_logout">Logout</string>
+
+
+    <!--    //location-->
+        <string name="title_activity_location">Map</string>
+        <string name="location">Location</string>
+        <string name="entry_tags">Entry tags</string>
+        <string name="confirm_selection">Confirm Selection</string>
+        <string name="dialog_exit_location_selector">Exit the location selector?</string>
+        <string name="dialog_confirm_selected_location">Confirm the selected location?</string>
+        <string name="location_saved">Location saved!</string>
+        <string name="location_unknown">Unknown Location</string>
+        <string name="location_geo">Geo</string>
+        <string name="location_not_selected">No Location Selected</string>
+        <string name="gps_enabled">GPS Location is enabled!</string>
+        <string name="gps_disabled">GPS Location is disabled!</string>
+
+    <!--    -->
+    <!--    //project-->
+        <string name="title">Title</string>
+        <string name="subtitle">Subtitle</string>
+       <string name="confirm">Confirm</string>
+        <string name="submit">Submit</string>
+        <string name="cancel">Cancel</string>
+        <string name="dialog_edit_entry_title">Edit Entry\'s Title</string>
+        <string name="dialog_add_entry_tag">Add an Entry\'s Tag</string>
+        <string name="entry_title">Entry\'s Title</string>
+        <string name="entry_tag">Tag</string>
+        <string name="dialog_edit_entry_subtitle">Edit Entry\'s Subtitle</string>
+        <string name="entry_subtitle">Entry\'s Subtitle</string>
+        <string name="untitled">Untitled</string>
+        <string name="hint_start_typing">Tell us something about the project you want to discuss</string>
+        <string name="action_add_tag">Add a Tag</string>
+        <string name="status_saved">Save successfully!</string>
+        <string name="dialog_remove_the_image">Remove the selected image?</string>
+        <string name="dialog_save_the_entry">Save the entry?</string>
+        <string name="empty_state_title">There is nothing here!</string>
+        <string name="empty_state_subtitle">Press the Button to Add a new project entry!</string>
+        <string name="empty_state_image_subtitle">Empty Project Entry List</string>
+        <string name="logout">Log out</string>
+        <string name="your_profile">Your Profile</string>
+        <string name="dialog_logout_confirmation_ask">Are you sure you want to Log out?</string>
+        <string name="dialog_logout_confirmation_message">After logging out, you will return to the landing page of the app. You will have to enter your email and password to login again.</string>
+
+        <string name="title_entry_create">Create a Project entry</string>
+<!--        <string name="entry_color">Color</string>-->
+<!--        <string name="dialog_edit_entry_color">Select an Accent color</string>-->
+        <string name="entry_video">Video</string>
+        <string name="entry_image">Image</string>
+        <string name="goodBad">Good or Bad</string>
+        <string name="goodbad_good">Good</string>
+        <string name="goodbad_bad">Bad</string>
+        <string name="goodbad_neutral">Neutral</string>
+        <string name="unknown">Unknown</string>
+        <string name="action_edit_this_entry">edit this entry</string>
+        <string name="debug_default_id" translatable="false">-1</string>
+    <!--    -->
+    <!--    //test-->
+        <string name="debug_android_test">Android Test</string>
+        <string name="template_dot_2_messages" translatable="false">%1$s • %2$s</string>
+        <string name="debug_placeholder_lorem" translatable="false">Lorem ipsum dolor sit amet, nullam neque faucibus quis urna bibendum, et tincidunt ut pulvinar, donec diam aliquam, varius orci integer nulla enim torquent, velit dictum velit massa accumsan. Congue magna nisl est, sed magna mauris mauris suscipit velit quis, fringilla dui donec orci vulputate. Euismod nullam, vivamus risus sed cum dolor eu quisque, in urna, nulla rutrum. Ut suscipit eu turpis sed. Turpis cursus ultricies cum amet diam ac, cras lectus mattis, tempor corrupti nibh ut ac vestibulum, feugiat vitae. Aliquam urna, pellentesque vestibulum lorem, eget in diam suspendisse lectus fusce ornare, pulvinar ipsum nec aenean facilisis non est, metus ante nam sapien feugiat pariatur quisque. Aute duis leo netus at vitae, duis mollis dolor, lorem cras faucibus amet egestas turpis pretium. Cursus id purus ligula nunc sed eros, sem sit feugiat. Velit vestibulum luctus nibh facilisis curabitur eros, viverra quis et sollicitudin, vitae duis dui massa purus turpis.  Pellentesque imperdiet pede ac feugiat blandit vehicula, vel tincidunt nulla magna amet fringilla, similique facilisis luctus sociis velit justo, natoque nulla fringilla, posuere aliquam integer elit pellentesque. Adipiscing purus metus ut, scelerisque eleifend et vitae in, augue aptent vivamus ut etiam non, mauris ipsum sit mi donec iaculis. Tempus viverra vitae suscipit praesent donec porta, ea suspendisse, vel ornare lobortis. Cursus luctus sollicitudin dolor, non vivamus mauris auctor a justo, magna vel. Sit ipsa congue commodo luctus nam, ante aliquet amet.  Mollis amet iaculis semper, eros eu turpis donec, vitae imperdiet. Vero fermentum adipiscing sapien felis vestibulum, quam amet turpis vestibulum hendrerit et consectetuer, lectus dis tellus quis magna sit, nec sodales, erat platea lorem varius. Commodo pellentesque parturient eu arcu lacus viverra, nec morbi. Accumsan montes turpis sapien libero amet, convallis proin sodales quam amet eleifend, luctus aliquet eu fringilla donec purus ac, proin dapibus suspendisse vehicula, ut rhoncus. Ut fermentum, ante fusce tempus duis, consequat venenatis nunc pellentesque massa.  Vitae in deserunt amet lacinia. Sed non lorem imperdiet magna, orci morbi fusce ante. Gravida per porttitor pellentesque lacus, eget in natoque mauris nunc aliquam venenatis, metus fringilla nulla conubia nascetur temporibus, eros nec eget massa mi et. Dolor dictum lectus euismod pede cras, non rutrum fames pede non eu ornare, pellentesque nonummy at, purus vitae praesent. Vel diam fringilla auctor justo risus, ac fusce neque fusce mauris a, non morbi vivamus feugiat eu vestibulum nunc, nulla cursus habitasse feugiat gravida. Natoque massa volutpat donec eget, mauris deserunt enim consequat amet sodales, amet rhoncus sem luctus varius in auctor.</string>
+        <string name="placeholder">Placeholder</string>
+
+    <!--    -->
+        <string name="dialog_edit_entry_exit_confirm">Do you want to exit and discard this?</string>
+        <string name="dialog_edit_entry_exit_message">Your changes will be lost if you exit.</string>
+        <string name="dialog_edit_entry_date_created">Select an Entry creation time</string>
+        <string name="entry_action_delete_this">Delete this Entry</string>
+        <string name="title_entry_edit">Edit a Project Entry</string>
+        <string name="dialog_delete_entry_title">Delete this Project Entry permanently?</string>
+        <string name="dialog_delete_entry_message">Deleted Project Entry cannot be recovered! Please be careful!</string>
+        <string name="action_delete_successful">Delete an entry successfully!</string>
+        <string name="dialog_time_window_select">Select a time window</string>
+</resources>

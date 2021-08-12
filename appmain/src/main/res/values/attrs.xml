@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RylyToolbarView">
+        <attr name="profileImage" format="reference"/>
+        <attr name="autoInitialScroll" format="boolean"/>
+        <attr name="compactSize" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="GoodBadView" >
+        <attr name="iconBackgroundTint" format="color"/>
+    </declare-styleable>
+</resources>

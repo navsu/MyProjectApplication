@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/project_navigation">
+<!--    app:startDestination="@id/projectViewFragment">-->
+
+<!--    <argument android:name="projectKey" app:argType="long" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/projectViewFragment"-->
+<!--        android:name="com.memandis.project.project.ProjectViewFragment"-->
+<!--        android:label="Project View"-->
+<!--        tools:layout="@layout/fragment_project_view">-->
+
+<!--        <argument android:name="projectKey" app:argType="long" />-->
+
+<!--        <action-->
+<!--            android:id="@+id/action_projectViewFragment_to_projectPagerFragment"-->
+<!--            app:destination="@id/projectPagerFragment" />-->
+
+<!--&lt;!&ndash;         <action&ndash;&gt;-->
+<!--&lt;!&ndash;             android:id="@+id/action_projectViewFragment_to_designerFragment"&ndash;&gt;-->
+<!--&lt;!&ndash;             app:destination="@id/designerFragment"&ndash;&gt;-->
+<!--&lt;!&ndash;             app:popUpTo="@+id/designer_navigation"&ndash;&gt;-->
+<!--&lt;!&ndash;             app:popUpToInclusive="true"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <action&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/action_projectViewFragment_to_clientFragment"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:destination="@id/clientFragment"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:popUpTo="@+id/client_navigation"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:popUpToInclusive="true"/>&ndash;&gt;-->
+
+<!--        &lt;!&ndash; Action back to destination which launched into this _nav_graph&ndash;&gt;-->
+<!--                <action android:id="@+id/action_pop_up_to_home"-->
+<!--                        app:popUpToInclusive="true" />-->
+<!--    </fragment>-->
+
+<!--    //project pager-->
+<!--    <fragment-->
+<!--        android:id="@+id/projectPagerFragment"-->
+<!--        android:name="com.memandis.project.project.ProjectViewPagerFragment"-->
+<!--        android:label="ProjectPagerFragment">-->
+<!--        <argument-->
+<!--            android:name="position"-->
+<!--            app:argType="integer" />-->
+<!--&lt;!&ndash;        <argument android:name="projectKey" app:argType="long" />&ndash;&gt;-->
+<!--    </fragment>-->
+
+<!--    //project pager-->
+<!--    <fragment-->
+<!--        android:id="@+id/projectMeeting"-->
+<!--        android:name="com.memandis.mydezigner.main.ui.meeting.MeetingFragment"-->
+<!--        android:label="ProjectPagerFragment">-->
+<!--        <argument-->
+<!--            android:name="position"-->
+<!--            app:argType="integer" />-->
+<!--    </fragment>-->
+
+</navigation>

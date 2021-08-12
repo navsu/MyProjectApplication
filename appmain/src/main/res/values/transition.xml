@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transition_simple_avatar">simple avatar</string>
+    <string name="transition_simple_name">simple name</string>
+    <string name="transition_simple_description">simple description</string>
+
+    <string name="transition_avatar">avatar %d</string>
+    <string name="transition_name">name %d</string>
+    <string name="transition_description">description %d</string>
+    <string name="transition_image">image %d</string>
+</resources>

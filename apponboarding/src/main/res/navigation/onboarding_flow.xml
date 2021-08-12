@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/onboarding_flow"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.memandis.onboarding.ui.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <argument
+            android:defaultValue=""
+            android:name="msg"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_loginEmailFragment"
+            app:destination="@id/loginEmailFragment"
+            app:launchSingleTop="true"
+            />
+        <action
+            android:id="@+id/action_loginFragment_to_registerEmailFragment"
+            app:destination="@id/registerEmailFragment"
+            app:launchSingleTop="true" />
+
+        <action
+            android:id="@+id/action_registerPasswordFragment_to_profileCustomizeFragment"
+            app:destination="@id/profileCustomizeFragment" />
+
+<!--        <action-->
+<!--            android:id="@+id/action_loginFragment_to_mainActivity"-->
+<!--            app:destination="@id/mainActivity"-->
+<!--            app:popUpTo="@id/mainActivity"-->
+<!--            app:popUpToInclusive="true"/>-->
+    </fragment>
+    <fragment
+        android:id="@+id/loginEmailFragment"
+        android:name="com.memandis.onboarding.ui.login.LoginEmailFragment"
+        android:label="LoginEmailFragment"
+        tools:layout="@layout/fragment_login_email">
+<!--        <action-->
+<!--            android:id="@+id/action_loginEmailFragment_to_mainActivity"-->
+<!--            app:destination="@id/mainActivity"-->
+<!--            app:launchSingleTop="true"-->
+<!--            app:popUpTo="@id/mainActivity"-->
+<!--            app:popUpToInclusive="true"/>-->
+        <action
+            android:id="@+id/action_loginEmailFragment_to_registerEmailFragment"
+            app:destination="@id/registerEmailFragment"
+            app:launchSingleTop="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/registerEmailFragment"
+        android:name="com.memandis.onboarding.ui.register.RegisterEmailFragment"
+        android:label="RegisterEmailFragment"
+        tools:layout="@layout/fragment_register_email">
+        <action
+            android:id="@+id/action_registerEmailFragment_to_registerPasswordFragment"
+            app:destination="@id/registerPasswordFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_registerEmailFragment_to_loginEmailFragment"
+            app:destination="@id/loginEmailFragment"
+            app:launchSingleTop="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registerPasswordFragment"
+        android:name="com.memandis.onboarding.ui.register.RegisterPasswordFragment"
+        android:label="RegisterPasswordFragment"
+        tools:layout="@layout/fragment_register_password">
+        <action
+            android:id="@+id/action_registerPasswordFragment_to_profileCustomizeFragment"
+            app:destination="@id/profileCustomizeFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_registerPasswordFragment_to_profileCustomizeFragment"-->
+<!--            app:destination="@id/profileCustomizeFragment"-->
+<!--            app:popUpTo="@id/mainActivity"-->
+<!--            app:launchSingleTop="true" />-->
+
+<!--        app:popUpTo="@id/mainActivity"-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileCustomizeFragment"
+        android:name="com.memandis.onboarding.ui.register.ProfileCustomizeFragment"
+        android:label="fragment_profile_customize"
+        tools:layout="@layout/fragment_profile_customize" >
+        <argument
+            android:name="uid"
+            android:defaultValue="Aa"
+            app:argType="string" />
+<!--        <action-->
+<!--            android:id="@+id/action_profileCustomizeFragment_to_mainActivity"-->
+<!--            app:destination="@id/mainActivity"-->
+<!--            app:popUpTo="@id/mainActivity"-->
+<!--            app:launchSingleTop="true"/>-->
+    </fragment>
+
+<!--    <activity-->
+<!--        android:id="@+id/mainActivity"-->
+<!--        android:name="MainActivity"-->
+<!--        android:label="MainActivity">-->
+<!--        <argument-->
+<!--            android:name="uid"-->
+<!--            android:defaultValue="Aa"-->
+<!--            app:argType="string" />-->
+<!--    </activity>-->
+
+</navigation>

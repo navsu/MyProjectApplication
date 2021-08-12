@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/base_flow"
+    android:id="@+id/main_nav_graph">
+
+    <include app:graph="@navigation/base_flow" />
+
+    <include app:graph="@navigation/home_flow" />
+
+    <include app:graph="@navigation/onboarding_flow" />
+
+    <action
+        android:id="@+id/action_global_home_flow"
+        app:destination="@id/home_flow"
+        app:popUpTo="@id/main_nav_graph"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" >
+        <argument
+          android:name="msg"
+          app:argType="string" />
+
+    <action
+        app:popUpTo="@id/main_nav_graph"
+        android:id="@+id/action_global_onboarding_flow"
+        app:destination="@id/onboarding_flow"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" />
+
+    </action>
+
+</navigation>
