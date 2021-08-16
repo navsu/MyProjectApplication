@@ -209,14 +209,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-<!--                <androidx.fragment.app.FragmentContainerView-->
-<!--                    android:id="@+id/map"-->
-<!--                    android:name="com.google.android.gms.maps.SupportMapFragment"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:tag="mapPreview"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/progressMap"-->
-<!--                    tools:context=".screens.LocationActivity" />-->
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:tag="mapPreview"
+                    app:layout_constraintTop_toBottomOf="@id/progressMap"
+                    tools:context="com.memandis.project.main.LocationActivity" />
 
                 <ProgressBar
                     android:id="@+id/progressMap"

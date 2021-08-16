@@ -12,8 +12,8 @@ android {
 
     defaultConfig {
 //        applicationId "com.memandis.appservice"
-        minSdkVersion 26
-        targetSdkVersion 30
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
         //kizitwose calender
         // Required ONLY when setting minSdkVersion to 20 or lower
         multiDexEnabled true
@@ -65,6 +65,11 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompatVersion"
     implementation "com.google.android.material:material:$appcompatVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+    //maps
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+//    implementation 'com.google.maps.android:android-maps-utils:2.2.3'
+//    implementation 'com.google.maps.android:maps-utils-ktx:3.1.0'
 
     //navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
@@ -140,7 +145,8 @@ dependencies {
     implementation 'com.afollestad.material-dialogs:datetime:3.2.1'
 
     // CalendarView 1.0.4
-    implementation 'com.github.kizitonwose:CalendarView:1.0.4'
+//    implementation 'com.github.kizitonwose:CalendarView:1.0.4'
+    implementation 'com.github.kizitonwose:CalendarView:0.3.4'
 
     //date
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'

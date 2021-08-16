@@ -11,7 +11,6 @@ import com.memandis.remote.datasource.model.diary.DiaryEntry
 import com.memandis.remote.datasource.model.diary.DiaryImage
 import com.memandis.remote.datasource.model.diary.DiaryTag
 import com.memandis.remote.domain.usecases.reactivelyfetch.RxSingleUseCaseProcedure
-//import com.memandis.remote.domain.usecases.reactivelyfetch.RxSingleUseCaseProcedure
 import com.memandis.remote.utils.map.zipLiveData
 import com.memandis.remote.utils.serviceutils.suspendinglyLoadBitmapToDiarylyImage
 import io.reactivex.Single

@@ -31,23 +31,23 @@
     <string name="search">Search</string>
     <string name="goals">Goals</string>
 
-
     //bottomnav
     <string name="nav_bot_1">Home</string>
     <string name="nav_bot_2">Onboarding</string>
     <string name="nav_bot_3">Launcher</string>
 
-        //drawer menu
-        <string name="nav_settings">Settings</string>
-        <string name="nav_languages">Languages</string>
-        <string name="nav_contactus">Contact US</string>
-        <string name="nav_help">Help</string>
-        <string name="nav_logout">Logout</string>
+    //drawer menu
+    <string name="nav_settings">Settings</string>
+    <string name="nav_languages">Languages</string>
+    <string name="nav_contactus">Contact US</string>
+    <string name="nav_help">Help</string>
+    <string name="nav_logout">Logout</string>
 
-
-    <!--    //location-->
-        <string name="title_activity_location">Map</string>
-        <string name="location">Location</string>
+    //location
+    <string name="title_activity_location">Map</string>
+    <string name="permission_request_location">Please give us permission to access the location!</string>
+    <string name="permission_request_storage">No Permission Granted: Requesting now!</string>
+    <string name="location">Location</string>
         <string name="entry_tags">Entry tags</string>
         <string name="confirm_selection">Confirm Selection</string>
         <string name="dialog_exit_location_selector">Exit the location selector?</string>

@@ -1,19 +1,21 @@
 package com.memandis.project.entry
 
-//import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
-//import com.google.android.gms.maps.CameraUpdateFactory
-//import com.google.android.gms.maps.GoogleMap
-//import com.google.android.gms.maps.OnMapReadyCallback
-//import com.google.android.gms.maps.SupportMapFragment
-//import com.google.android.gms.maps.model.LatLng
-//import com.google.android.gms.maps.model.MarkerOptions
-//import es.dmoral.toasty.Toasty
+
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -23,6 +25,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.children
@@ -53,14 +56,14 @@ import java.util.*
 import java.util.concurrent.Executors
 import com.memandis.remote.utils.*
 import com.memandis.project.diary.recyclerview.MarginItemDecoration
+import com.memandis.project.entry.vm.EntryEditorViewModel.Companion.EMPTY_LOCATION
+import com.memandis.project.main.LocationActivity
 import com.memandis.remote.utils.app.AppConstants
 import com.memandis.remote.utils.background.invokeImageSelectionIntent
 import com.memandis.remote.utils.background.invokeVideoSelectionIntent
 import com.memandis.remote.utils.binding.changeBackgroundColor
-import com.memandis.remote.utils.map.CODE_PERMISSION_FINE_LOCATION
-import com.memandis.remote.utils.map.CODE_PERMISSION_READ_STORAGE
-import com.memandis.remote.utils.map.isGrantedExternalStoragePermission
-import com.memandis.remote.utils.map.isGrantedFineLocationPermission
+import com.memandis.remote.utils.map.*
+import java.io.IOException
 
 /**
  * A Fragment responsible for hosting a whole process of Editing/Creating a DiaryEntry
@@ -68,9 +71,15 @@ import com.memandis.remote.utils.map.isGrantedFineLocationPermission
  * @property viewModel EntryEditorViewModel Data holder for this Fragment
  */
 
-class EntryEditFragment : Fragment()/*, OnMapReadyCallback */{
+class EntryEditFragment : Fragment(), OnMapReadyCallback {
 
     private val LOG_TAG = this::class.java.simpleName
+
+    companion object {
+//        const val REQUEST_CODE_GALLERY = 100
+        const val REQUEST_CODE_LOCATION_PICKER = 200
+//        const val FILE_READ_ONLY = "r"
+    }
 
     private lateinit var viewModel: EntryEditorViewModel
 
@@ -217,16 +226,20 @@ class EntryEditFragment : Fragment()/*, OnMapReadyCallback */{
                                 .saveData()
                                 .subscribe { it2, throwable ->
                                     Log.d(LOG_TAG, "Upload Data Completed: $it2")
-//                                    Toasty.success(context, getString(R.string.status_saved)).show()
-//                                    requireActivity().finish()
+                                    Toast.makeText(context,
+                                        getString(R.string.status_saved),
+                                        Toast.LENGTH_SHORT).show()
+                                    requireActivity().finish()
                                 }
                     } else {
                         viewModel
                                 .updateData()
                                 .subscribe { data, throwable ->
                                     Log.d(LOG_TAG, "Saved Data Completed: $data")
-//                                    Toasty.success(context, getString(R.string.status_saved)).show()
-//                                    requireActivity().finish()
+                                    Toast.makeText(context,
+                                        getString(R.string.status_saved),
+                                        Toast.LENGTH_SHORT).show()
+                                    requireActivity().finish()
                                 }
                     }
                 }
@@ -459,7 +472,7 @@ class EntryEditFragment : Fragment()/*, OnMapReadyCallback */{
 
         viewModel.color.observe(viewLifecycleOwner, Observer { color ->
             if(color == null) {
-//                return@observe
+                return@Observer
             } else {
               chipRvAdapter.setChipBackgroundColor = color
                 binding.tagEditContainer.children.iterator().forEach {
@@ -536,7 +549,9 @@ class EntryEditFragment : Fragment()/*, OnMapReadyCallback */{
     private fun requestPermissions(permissionCode: Int): Boolean {
         if(permissionCode == CODE_PERMISSION_READ_STORAGE) {
             if(!requireActivity().isGrantedExternalStoragePermission()) {
-//                Toasty.error(context!!, getString(R.string.permission_request_storage)).show()
+                Toast.makeText(context,
+                    getString(R.string.permission_request_storage),
+                    Toast.LENGTH_SHORT).show()
                 ActivityCompat.requestPermissions(requireActivity(),
                                                   arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                                                   CODE_PERMISSION_READ_STORAGE
@@ -547,7 +562,9 @@ class EntryEditFragment : Fragment()/*, OnMapReadyCallback */{
         } else if(permissionCode == CODE_PERMISSION_FINE_LOCATION) {
             // Permission is not granted, Should we show an explanation?
             if(!requireActivity().isGrantedFineLocationPermission()) {
-//                Toasty.error(context!!, getString(R.string.permission_request_location)).show()
+                Toast.makeText(context,
+                    getString(R.string.permission_request_location),
+                    Toast.LENGTH_SHORT).show()
                 // No explanation needed, we can request the permission.
                 ActivityCompat.requestPermissions(requireActivity(),
                                                   arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
@@ -613,69 +630,69 @@ class EntryEditFragment : Fragment()/*, OnMapReadyCallback */{
 //        database.updateChildren(childUpdates)
 //    }
 
-//    @SuppressLint("MissingPermission")
+    @SuppressLint("MissingPermission")
     private fun initializeLocationAndMap() {
-//
-//        val locationManager: LocationManager = activity!!.getSystemService(
-//                Context.LOCATION_SERVICE) as LocationManager
-//
-//        val locationListener: LocationListener = object : LocationListener {
-//            override fun onLocationChanged(location: Location?) {
-//
-//                progressMap?.visibility = View.GONE
-//                locationEditBtn?.isEnabled = true
-//                locationClearBtn?.isEnabled = true
-//
-//                if(location == null || viewModel.coordinate.value != EMPTY_LOCATION) {
-//                    return
-//                }
-//
-//                if(viewModel.isModification && viewModel.coordinate.value != EMPTY_LOCATION) {
-//                    return
-//                }
-//
-//                try {
-//                    val initCoordinate = Pair(location.latitude, location.longitude)
-//                    viewModel.SESSION_DEFAULT_LOCATION = initCoordinate
-//                    viewModel.coordinate.value = initCoordinate
-//                } catch(e: IOException) {
-//                    e.printStackTrace()
-//                } finally {
-//                    locationManager.removeUpdates(this)
-//                }
-//            }
-//
-//            override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-//                // TODO("Not yet implemented")
-//            }
-//
-//            @SuppressLint("MissingPermission")
-//            override fun onProviderEnabled(provider: String?) {
-////                Toasty.info(context!!, getString(R.string.gps_enabled)).show()
-//
-//                if(viewModel.coordinate.value == EMPTY_LOCATION) {
-//                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 300L, 0f,
-//                                                           this)
-//                    progressMap?.visibility = View.VISIBLE
-//                    locationEditBtn?.isEnabled = false
-//                    locationClearBtn?.isEnabled = false
-//                }
-//            }
-//
-//            override fun onProviderDisabled(provider: String?) {
-////                Toasty.error(context!!, getString(R.string.gps_disabled)).show()
-//                progressMap?.visibility = View.GONE
-//            }
-//        }
-//
-//        // Permission has already been granted
-//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 300L, 0f,
-//                                               locationListener)
-//
-//        // val mapFragment = map.findFragment<Fragment>() as SupportMapFragment
-//        val mapFragment = this.childFragmentManager
-//                .findFragmentByTag("mapPreview") as SupportMapFragment
-//        mapFragment.getMapAsync(this)
+
+        val locationManager: LocationManager =
+            requireActivity().getSystemService( Context.LOCATION_SERVICE) as LocationManager
+
+        val locationListener: LocationListener = object : LocationListener {
+
+            override fun onLocationChanged(p0: Location) {
+                binding.bottomSheetView.progressMap?.visibility = View.GONE
+                binding.bottomSheetView.locationEditBtn?.isEnabled = true
+                binding.bottomSheetView.locationClearBtn?.isEnabled = true
+
+                if(p0 == null || viewModel.coordinate.value != EMPTY_LOCATION) {
+                    return
+                }
+
+                if(viewModel.isModification && viewModel.coordinate.value != EMPTY_LOCATION) {
+                    return
+                }
+
+                try {
+                    val initCoordinate = Pair(p0.latitude, p0.longitude)
+                    viewModel.SESSION_DEFAULT_LOCATION = initCoordinate
+                    viewModel.coordinate.value = initCoordinate
+                } catch(e: IOException) {
+                    e.printStackTrace()
+                } finally {
+                    locationManager.removeUpdates(this)
+                }
+            }
+
+            override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+                // TODO("Not yet implemented")
+            }
+
+            @SuppressLint("MissingPermission")
+            override fun onProviderEnabled(provider: String) {
+//                Toasty.info(context!!, getString(R.string.gps_enabled)).show()
+
+                if(viewModel.coordinate.value == EMPTY_LOCATION) {
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 300L, 0f,
+                                                           this)
+                    binding.bottomSheetView.progressMap?.visibility = View.VISIBLE
+                    binding.bottomSheetView.locationEditBtn?.isEnabled = false
+                    binding.bottomSheetView.locationClearBtn?.isEnabled = false
+                }
+            }
+
+            override fun onProviderDisabled(provider: String) {
+//                Toasty.error(context!!, getString(R.string.gps_disabled)).show()
+                binding.bottomSheetView.progressMap?.visibility = View.GONE
+            }
+        }
+
+        // Permission has already been granted
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 300L, 0f,
+                                               locationListener)
+
+        // val mapFragment = map.findFragment<Fragment>() as SupportMapFragment
+        val mapFragment = this.childFragmentManager
+                .findFragmentByTag("mapPreview") as SupportMapFragment
+        mapFragment.getMapAsync(this)
     }
 
     /**
@@ -689,51 +706,51 @@ class EntryEditFragment : Fragment()/*, OnMapReadyCallback */{
      *
      * @param g GoogleMap an instance of Google Map
      */
-//    override fun onMapReady(g: GoogleMap) {
-//        g.apply {
-//            setMinZoomPreference(15f)
-//            uiSettings.setAllGesturesEnabled(false)
-//        }
-//
-//        // Migrate the click to somewhere else
-//        locationEditBtn.setOnClickListener {
-//            if(activity!!.isGrantedFineLocationPermission()) {
-//                val lat = viewModel.coordinate.value!!.first
-//                val long = viewModel.coordinate.value!!.second
-//
-//                val action = EntryEditFragmentDirections.actionEntryEditFragmentToLocationActivity(
-//                        lat.toFloat(), long.toFloat()).arguments
-//                Log.d(LOG_TAG, "Sent Location Bundle: $lat, $long")
-//
-//                val intent = Intent(activity!!, LocationActivity::class.java).putExtras(action)
-//                startActivityForResult(intent, REQUEST_CODE_LOCATION_PICKER)
-//            }
-//        }
-//
-//        viewModel.coordinate.observe(viewLifecycleOwner) {
-//            if(it == EMPTY_LOCATION){
-//                locationClearBtn.isEnabled = false
-//                locationNameTextView.text = getString(R.string.location_not_selected)
-//                locationCoordinateTextView.text = ""
-//            }
-//
-//            locationClearBtn.isEnabled = true
-//
-//            Log.d(LOG_TAG, "Updating the location to (${it.first}, ${it.second})")
-//            val position = LatLng(it.first, it.second)
-//            g.clear()
-//            g.addMarker(MarkerOptions().position(position))
-//            g.moveCamera(CameraUpdateFactory.newLatLng(position))
-//
-//            val areaName = context!!.getAreaNameByCoordinate(it)
-//            locationNameTextView.text = areaName.first
-//            locationCoordinateTextView.text = areaName.second
-//        }
-//
-//        locationClearBtn.setOnClickListener {
-//            viewModel.coordinate.value = viewModel.SESSION_DEFAULT_LOCATION
-//        }
-//    }
+    override fun onMapReady(g: GoogleMap) {
+        g.apply {
+            setMinZoomPreference(15f)
+            uiSettings.setAllGesturesEnabled(false)
+        }
+
+        // Migrate the click to somewhere else
+        binding.bottomSheetView.locationEditBtn.setOnClickListener {
+            if(requireActivity().isGrantedFineLocationPermission()) {
+                val lat = viewModel.coordinate.value!!.first
+                val long = viewModel.coordinate.value!!.second
+
+                val action = EntryEditFragmentDirections.actionEntryEditFragmentToLocationActivity(
+                        lat.toFloat(), long.toFloat()).arguments
+                Log.d(LOG_TAG, "Sent Location Bundle: $lat, $long")
+
+                val intent = Intent(requireActivity(), LocationActivity::class.java).putExtras(action)
+                startActivityForResult(intent, REQUEST_CODE_LOCATION_PICKER)
+            }
+        }
+
+        viewModel.coordinate.observe(viewLifecycleOwner) {
+            if(it == EMPTY_LOCATION){
+                binding.bottomSheetView.locationClearBtn.isEnabled = false
+                binding.bottomSheetView.locationNameTextView.text = getString(R.string.location_not_selected)
+                binding.bottomSheetView.locationCoordinateTextView.text = ""
+            }
+
+            binding.bottomSheetView.locationClearBtn.isEnabled = true
+
+            Log.d(LOG_TAG, "Updating the location to (${it.first}, ${it.second})")
+            val position = LatLng(it.first, it.second)
+            g.clear()
+            g.addMarker(MarkerOptions().position(position))
+            g.moveCamera(CameraUpdateFactory.newLatLng(position))
+
+            val areaName = requireContext().getAreaNameByCoordinate(it)
+            binding.bottomSheetView.locationNameTextView.text = areaName.first
+            binding.bottomSheetView.locationCoordinateTextView.text = areaName.second
+        }
+
+        binding.bottomSheetView.locationClearBtn.setOnClickListener {
+            viewModel.coordinate.value = viewModel.SESSION_DEFAULT_LOCATION
+        }
+    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(resultCode == Activity.RESULT_OK) {

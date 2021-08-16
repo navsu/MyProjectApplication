@@ -8,7 +8,7 @@ buildscript {
         // App dependencies
         // android SDK
 //        compileSdkVersion = 29
-        minSdkVersion = 26
+        minSdkVersion = 23
         targetSdkVersion = 30
 
 //        googleplayVersion = '1.10.0'
@@ -148,6 +148,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navVersion"
         classpath "com.google.gms:google-services:${google_gms}"
+        classpath "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:1.3.0"
 
         // hilt+dagger2 addition
         classpath "com.google.dagger:hilt-android-gradle-plugin:${hiltVersion}"

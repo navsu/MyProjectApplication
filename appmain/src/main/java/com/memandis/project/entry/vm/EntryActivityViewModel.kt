@@ -13,9 +13,6 @@ import com.memandis.remote.datasource.model.diary.Resource
 import com.memandis.remote.domain.usecases.reactivelyfetch.DiaryContentUseCase.getAllDiaryEntriesByDateHolder
 import com.memandis.remote.domain.usecases.reactivelyfetch.DiaryContentUseCase.getOneDiaryEntry
 import com.memandis.remote.domain.usecases.reactivelyfetch.UserDiaryUseCase.deleteDiaryEntry
-//import com.memandis.remote.domain.usecases.reactivelyfetch.DiaryContentUseCase.getAllDiaryEntriesByDateHolder
-//import com.memandis.remote.domain.usecases.reactivelyfetch.DiaryContentUseCase.getOneDiaryEntry
-//import com.memandis.remote.domain.usecases.reactivelyfetch.UserDiaryUseCase.deleteDiaryEntry
 import io.reactivex.Single
 
 class EntryActivityViewModel(application: Application, entryId: String,
