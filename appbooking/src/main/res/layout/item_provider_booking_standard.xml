@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="standardSlots"
+            type="com.memandis.remote.datasource.model.booking.Subscription" />
+        <variable
+            name="standardPosition"
+            type="int" />
+        <variable
+            name="time"
+            type="String" />
+        <variable
+            name="viewModel"
+            type="com.memandis.appbooking.vm.BookingViewModel" />
+
+        <variable
+            name="standardBookingClickListener"
+            type="com.memandis.appbooking.binding.BookingListener" />
+
+        <variable
+            name="standardBookingSlotClickListener"
+            type="com.memandis.appbooking.binding.BookingSlotListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:showIn="@layout/fragment_booking">
+
+        <ImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:src="@drawable/vid_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:text="fulldate"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+<!--        android:text="@{standardSlots.fullDate}"-->
+        <ImageView
+            android:id="@+id/bookingSlotImageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="@{() -> standardBookingSlotClickListener.onClickItem(standardSlots, 4, time)}"
+            app:setSelectedSlotImage="@{(viewModel.slotSelected.equals(4))}"
+            app:slotPressed="@{@drawable/ic_shutter_pressed}"
+            app:slotNormal="@{ @drawable/ic_shutter_normal}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bookingSlotImageView2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDate"/>
+<!--        android:onClick="@{() -> standardBookingSlotClickListener.onClickItem(standardSlots, 4, standardSlots.time1)}"-->
+        <ImageView
+            android:id="@+id/bookingSlotImageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> standardBookingSlotClickListener.onClickItem(standardSlots, 5, time)}"
+            app:setSelectedSlotImage="@{(viewModel.slotSelected.equals(5))}"
+            app:slotPressed="@{@drawable/ic_shutter_pressed}"
+            app:slotNormal="@{ @drawable/ic_shutter_normal}"
+            app:layout_constraintEnd_toStartOf="@+id/bookingSlotImageView3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/bookingSlotImageView1"
+            app:layout_constraintTop_toTopOf="@+id/bookingSlotImageView1" />
+        android:onClick="@{() -> standardBookingSlotClickListener.onClickItem(standardSlots, 5, standardSlots.time2)}"
+        <ImageView
+            android:id="@+id/bookingSlotImageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> standardBookingSlotClickListener.onClickItem(standardSlots, 6, time)}"
+            app:setSelectedSlotImage="@{(viewModel.slotSelected.equals(6))}"
+            app:slotPressed="@{@drawable/ic_shutter_pressed}"
+            app:slotNormal="@{ @drawable/ic_shutter_normal}"
+            app:layout_constraintEnd_toStartOf="@+id/bookingSlotImageView4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/bookingSlotImageView2"
+            app:layout_constraintTop_toTopOf="@+id/bookingSlotImageView1" />
+<!--        android:onClick="@{() -> standardBookingSlotClickListener.onClickItem(standardSlots, 6, standardSlots.time3)}"-->
+        <ImageView
+            android:id="@+id/bookingSlotImageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_calendar_black_24dp"
+            android:onClick="@{() -> standardBookingSlotClickListener.onClickItem(standardSlots, 7, time)}"
+            app:setSelectedSlotImage="@{(viewModel.slotSelected.equals(7))}"
+            app:slotPressed="@{@drawable/ic_shutter_pressed}"
+            app:slotNormal="@{ @drawable/ic_shutter_normal}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/bookingSlotImageView3"
+            app:layout_constraintTop_toTopOf="@+id/bookingSlotImageView1" />
+<!--        android:onClick="@{() -> standardBookingSlotClickListener.onClickItem(standardSlots, 7, standardSlots.time4)}"-->
+        <TextView
+            android:id="@+id/textViewSlot1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{time}"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/bookingSlotImageView1"
+            app:layout_constraintStart_toStartOf="@+id/bookingSlotImageView1"
+            app:layout_constraintTop_toBottomOf="@+id/bookingSlotImageView1" />
+<!--        android:text="@{standardSlots.time1}"-->
+        <TextView
+            android:id="@+id/textViewSlot2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{time}"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/bookingSlotImageView2"
+            app:layout_constraintStart_toStartOf="@+id/bookingSlotImageView2"
+            app:layout_constraintTop_toBottomOf="@+id/bookingSlotImageView2" />
+<!--        android:text="@{standardSlots.time2}"-->
+        <TextView
+            android:id="@+id/textViewSlot3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{time}"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/bookingSlotImageView3"
+            app:layout_constraintStart_toStartOf="@+id/bookingSlotImageView3"
+            app:layout_constraintTop_toBottomOf="@+id/bookingSlotImageView3" />
+<!--        android:text="@{standardSlots.time3}"-->
+        <TextView
+            android:id="@+id/textViewSlot4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{time}"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/bookingSlotImageView4"
+            app:layout_constraintStart_toStartOf="@+id/bookingSlotImageView4"
+            app:layout_constraintTop_toBottomOf="@+id/bookingSlotImageView4" />
+<!--        android:text="@{standardSlots.time4}"-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/login"
+            android:text="@string/confirm_booking"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:onClick="@{() -> standardBookingClickListener.onClick(standardSlots, standardPosition)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileImageView" />
+        <!--    android:onClick="@{onClickListener}"-->
+        <!--    android:onClick="@{() -> viewModel.login(inputEmail.getText().toString(), inputPassword.getText().toString())}"-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
+

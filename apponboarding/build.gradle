@@ -55,10 +55,13 @@ dependencies {
     implementation "androidx.core:core-ktx:$androidcorektxVersion"
 
     implementation "androidx.appcompat:appcompat:$appcompatVersion"
-    implementation "com.google.android.material:material:$appcompatVersion"
+
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
+
+    //UI-material
+    implementation "com.google.android.material:material:$materialVersion"
 
     //common between feature module and navigation
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"

@@ -25,6 +25,7 @@ class EntryEditorViewModel(application: Application, private val editorEntryId: 
         AndroidViewModel(application) {
     companion object {
         val EMPTY_LOCATION = Pair(0.0, 0.0)
+//        LatLng sydney = new LatLng(-33.852, 151.211);
     }
 
     var SESSION_DEFAULT_LOCATION = Pair(0.0, 0.0)
@@ -256,19 +257,5 @@ class EntryEditorViewModel(application: Application, private val editorEntryId: 
         tagArray.value = old
     }
 
-//    private fun upload() {
-//        var mReference = mStorage.child(uri.lastPathSegment)
-//        try {
-//            mReference.putFile(uri).addOnSuccessListener {
-//                    taskSnapshot: UploadTask.TaskSnapshot? -> var url = taskSnapshot!!.downloadUrl
-//                val dwnTxt = findViewById<View>(R.id.dwnTxt) as TextView
-//                dwnTxt.text = url.toString()
-//                Toast.makeText(this, "Successfully Uploaded :)", Toast.LENGTH_LONG).show()
-//            }
-//        }catch (e: Exception) {
-//            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show()
-//        }
-//
-//    }
 }
 

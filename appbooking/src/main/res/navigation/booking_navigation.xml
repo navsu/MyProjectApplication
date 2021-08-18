@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/booking_navigation"
+    app:startDestination="@id/serviceProvider">
+
+    <argument android:name="userKey" app:argType="long" />
+    <argument android:name="projectKey" app:argType="long" />
+    <argument android:name="projectParams" app:argType="string"/>
+
+    <include app:graph="@navigation/payment_navigation" />
+
+    //Designer Profile View
+    <fragment
+        android:id="@+id/serviceProvider"
+        android:name="com.memandis.appbooking.ProviderProfileFragment"
+        android:label="Selection"
+        tools:layout="@layout/fragment_provider">
+
+        <argument android:name="userKey" app:argType="long" />
+        <argument android:name="projectKey" app:argType="long" />
+        <argument android:name="projectParams" app:argType="string"/>
+
+        <action
+            android:id="@+id/action_selection_to_booking"
+            app:destination="@id/booking">
+        </action>
+    </fragment>
+
+    //Designer Booking Slot View
+    <fragment
+        android:id="@+id/booking"
+        android:name="com.memandis.appbooking.BookingFragment"
+        android:label="Booking"
+        tools:layout="@layout/fragment_booking">
+
+        <argument android:name="userKey" app:argType="long" />
+        <argument android:name="designerKey" app:argType="long"/>
+        <argument android:name="projectKey" app:argType="long"/>
+        <argument android:name="subscriptionKey" app:argType="long"/>
+        <argument android:name="serviceParams" app:argType="string"/>
+
+<!--        <action-->
+<!--            android:id="@+id/action_booking_to_payment"-->
+<!--            app:destination="@id/payment_navigation" />-->
+
+    </fragment>
+
+</navigation>

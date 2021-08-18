@@ -1,6 +1,5 @@
 package com.memandis.project.entry
 
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -98,6 +97,7 @@ class EntryEditFragment : Fragment(), OnMapReadyCallback {
         return binding.root
     }
 
+    @SuppressLint("CheckResult")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -334,10 +334,7 @@ class EntryEditFragment : Fragment(), OnMapReadyCallback {
 //                positiveButton(R.string.submit)
 //            }
         }.also { listener ->
-            binding.bottomSheetView.videoSelectBtn
-                     .setOnClickListener {
-                      listener(it)
-                 }
+            binding.bottomSheetView.videoSelectBtn.setOnClickListener {listener(it) }
         }
 
         // overlayImageView.setOnClickListener { invokeImageSelectionIntent() }
@@ -542,6 +539,7 @@ class EntryEditFragment : Fragment(), OnMapReadyCallback {
 
         if(requireActivity().isGrantedFineLocationPermission()) {
             initializeLocationAndMap()
+//            viewModel.coordinate.value = Pair(-33.852, 151.211)
         }
     }
 
@@ -579,57 +577,6 @@ class EntryEditFragment : Fragment(), OnMapReadyCallback {
         return false
     }
 
-//    private fun submitPost() {
-//
-//        val userId = uid
-//        database.child("users").child(userId).addListenerForSingleValueEvent(
-//            object : ValueEventListener {
-//                override fun onDataChange(dataSnapshot: DataSnapshot) {
-//                    // Get user value
-//                    val user = dataSnapshot.getValue<User>()
-//
-//                    if (user == null) {
-//                        // User is null, error out
-//                        Log.e(TAG, "User $userId is unexpectedly null")
-//                        Toast.makeText(context,
-//                            "Error: could not fetch user.",
-//                            Toast.LENGTH_SHORT).show()
-//                    } else {
-//                        // Write new post
-//                        writeNewPost(userId, user.username.toString(), title, body)
-//                    }
-//
-//                    setEditingEnabled(true)
-//                    findNavController().navigate(R.id.action_NewPostFragment_to_MainFragment)
-//                }
-//
-//                override fun onCancelled(databaseError: DatabaseError) {
-//                    Log.w(TAG, "getUser:onCancelled", databaseError.toException())
-//                    setEditingEnabled(true)
-//                }
-//            })
-//    }
-//
-//    private fun writeNewPost(userId: String, username: String, title: String, body: String) {
-//        // Create new post at /user-posts/$userid/$postid and at
-//        // /posts/$postid simultaneously
-//        val key = database.child("posts").push().key
-//        if (key == null) {
-//            Log.w(TAG, "Couldn't get push key for posts")
-//            return
-//        }
-//
-//        val post = Post(userId, username, title, body)
-//        val postValues = post.toMap()
-//
-//        val childUpdates = hashMapOf<String, Any>(
-//            "/posts/$key" to postValues,
-//            "/user-posts/$userId/$key" to postValues
-//        )
-//
-//        database.updateChildren(childUpdates)
-//    }
-
     @SuppressLint("MissingPermission")
     private fun initializeLocationAndMap() {
 
@@ -640,7 +587,7 @@ class EntryEditFragment : Fragment(), OnMapReadyCallback {
 
             override fun onLocationChanged(p0: Location) {
                 binding.bottomSheetView.progressMap?.visibility = View.GONE
-                binding.bottomSheetView.locationEditBtn?.isEnabled = true
+//                binding.bottomSheetView.locationEditBtn?.isEnabled = true
                 binding.bottomSheetView.locationClearBtn?.isEnabled = true
 
                 if(p0 == null || viewModel.coordinate.value != EMPTY_LOCATION) {
@@ -663,31 +610,31 @@ class EntryEditFragment : Fragment(), OnMapReadyCallback {
             }
 
             override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-                // TODO("Not yet implemented")
+
             }
 
             @SuppressLint("MissingPermission")
             override fun onProviderEnabled(provider: String) {
-//                Toasty.info(context!!, getString(R.string.gps_enabled)).show()
-
+                Toast.makeText(context!!, getString(R.string.gps_enabled), Toast.LENGTH_SHORT).show()
                 if(viewModel.coordinate.value == EMPTY_LOCATION) {
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 300L, 0f,
-                                                           this)
+                    locationManager.requestLocationUpdates(
+                        LocationManager.GPS_PROVIDER, 300L, 0f,this)
                     binding.bottomSheetView.progressMap?.visibility = View.VISIBLE
-                    binding.bottomSheetView.locationEditBtn?.isEnabled = false
+//                    binding.bottomSheetView.locationEditBtn?.isEnabled = false
                     binding.bottomSheetView.locationClearBtn?.isEnabled = false
                 }
             }
 
             override fun onProviderDisabled(provider: String) {
-//                Toasty.error(context!!, getString(R.string.gps_disabled)).show()
+                Toast.makeText(context!!, getString(R.string.gps_disabled), Toast.LENGTH_SHORT).show()
                 binding.bottomSheetView.progressMap?.visibility = View.GONE
             }
+
         }
 
         // Permission has already been granted
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 300L, 0f,
-                                               locationListener)
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+            300L, 0f, locationListener)
 
         // val mapFragment = map.findFragment<Fragment>() as SupportMapFragment
         val mapFragment = this.childFragmentManager
@@ -718,6 +665,7 @@ class EntryEditFragment : Fragment(), OnMapReadyCallback {
                 val lat = viewModel.coordinate.value!!.first
                 val long = viewModel.coordinate.value!!.second
 
+
                 val action = EntryEditFragmentDirections.actionEntryEditFragmentToLocationActivity(
                         lat.toFloat(), long.toFloat()).arguments
                 Log.d(LOG_TAG, "Sent Location Bundle: $lat, $long")
@@ -727,11 +675,14 @@ class EntryEditFragment : Fragment(), OnMapReadyCallback {
             }
         }
 
-        viewModel.coordinate.observe(viewLifecycleOwner) {
+        viewModel.coordinate.observe(viewLifecycleOwner, {
+
             if(it == EMPTY_LOCATION){
                 binding.bottomSheetView.locationClearBtn.isEnabled = false
                 binding.bottomSheetView.locationNameTextView.text = getString(R.string.location_not_selected)
                 binding.bottomSheetView.locationCoordinateTextView.text = ""
+
+
             }
 
             binding.bottomSheetView.locationClearBtn.isEnabled = true
@@ -745,7 +696,7 @@ class EntryEditFragment : Fragment(), OnMapReadyCallback {
             val areaName = requireContext().getAreaNameByCoordinate(it)
             binding.bottomSheetView.locationNameTextView.text = areaName.first
             binding.bottomSheetView.locationCoordinateTextView.text = areaName.second
-        }
+        })
 
         binding.bottomSheetView.locationClearBtn.setOnClickListener {
             viewModel.coordinate.value = viewModel.SESSION_DEFAULT_LOCATION

@@ -228,7 +228,12 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
                                      .title("Selected Location")
                              g.addMarker(marker)
 
-                             val camera= CameraUpdateFactory.newCameraPosition(CameraPosition.builder().target(marker.position).zoom(15f).build())
+                             val camera= CameraUpdateFactory.newCameraPosition(
+                                 CameraPosition.builder()
+                                               .target(marker.position)
+                                               .zoom(15f)
+                                               .build()
+                             )
                              g.animateCamera(camera)
                              // viewModel.coordinate.removeObserver(this)
                          })

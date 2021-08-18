@@ -61,10 +61,11 @@ dependencies {
 
     //core
     implementation "androidx.core:core-ktx:$androidcorektxVersion"
-
     implementation "androidx.appcompat:appcompat:$appcompatVersion"
-    implementation "com.google.android.material:material:$appcompatVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+    //material
+    implementation "com.google.android.material:material:$materialVersion"
 
     //maps
     implementation 'com.google.android.gms:play-services-maps:17.0.1'

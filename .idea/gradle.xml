@@ -12,6 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/appbooking" />
             <option value="$PROJECT_DIR$/applocal" />
             <option value="$PROJECT_DIR$/appmain" />
             <option value="$PROJECT_DIR$/appnavigation" />

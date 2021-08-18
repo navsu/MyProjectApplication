@@ -38,4 +38,5 @@ class EntryEditorActivity : AppCompatActivity() {
             negativeButton(res = R.string.cancel)
         }
     }
+
 }

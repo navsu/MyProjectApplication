@@ -1,0 +1,10 @@
+<resources>
+    //booking
+    <string name="app_name">MyDezigner Booking</string>
+    <string name="confirm_booking">Confirm</string>
+    <string name="appointment">My Appointments</string>
+    <string name="confirm_appointment1">Your appointment is confirmed</string>
+    <string name="confirm_appointment2">6:00 PM | Mr. Client</string>
+    <string name="confirm_appointment3">Friday, 13 November 2020</string>
+
+</resources>

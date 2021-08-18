@@ -60,7 +60,8 @@
 
                 <activity
                     android:name="com.memandis.project.main.LocationActivity"
-                    android:label="@string/title_activity_location" />
+                    android:label="@string/title_activity_location"
+                    android:theme="@style/AppTheme.DarkStatusBar" />
 
         <activity
             android:name="com.memandis.project.entry.EntryDisplayActivity"
