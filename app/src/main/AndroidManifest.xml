@@ -26,8 +26,8 @@
             </intent-filter>
         </activity>
 
-<!--        <activity-->
-<!--            android:name=".main.ui.MainActivity" />-->
+        <activity
+            android:name="com.memandis.appbooking.BookingActivity" />
 
         <activity
             android:name="com.memandis.project.main.MainActivity"

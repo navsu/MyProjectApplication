@@ -102,6 +102,7 @@
 
     </activity>
 
+    //Search Fragment
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.memandis.project.main.SearchFragment"
@@ -112,6 +113,7 @@
             app:launchSingleTop="true" />
     </fragment>
 
+    //Overview Fragment
     <fragment
         android:id="@+id/overviewFragment"
         android:name="com.memandis.project.main.OverviewFragment"

@@ -1,6 +1,7 @@
 package com.memandis.appservice
 
 import android.app.Application
+import com.jakewharton.threetenabp.AndroidThreeTen
 
 class MyProjectApplication: Application()/*MultiDexApplication()*/ {
 
@@ -20,11 +21,10 @@ class MyProjectApplication: Application()/*MultiDexApplication()*/ {
 //    val bookingRepository: BookingRepository
 //        get() = ServiceLocator.provideMyDezignerBookingRepository(this)
 //
-//    override fun onCreate() {
-//        super.onCreate()
-//
-//        AndroidThreeTen.init(this)
+    override fun onCreate() {
+        super.onCreate()
+        AndroidThreeTen.init(this)
 //        RxJavaPlugins.setErrorHandler(Functions.emptyConsumer())
-//    }
+    }
 
 }
