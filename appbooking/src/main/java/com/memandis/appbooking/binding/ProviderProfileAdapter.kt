@@ -1,9 +1,11 @@
 package com.memandis.appbooking.binding
 
 import android.annotation.SuppressLint
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.annotation.LayoutRes
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
@@ -12,6 +14,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestListener
 import com.google.android.material.tabs.TabLayout
 import com.memandis.appbooking.vm.BookingViewModel
 
@@ -164,3 +169,33 @@ fun setViewPosition(view: View, position: Int?) {
 //fun setUpWithViewpager(tabLayout: TabLayout, viewPager: ViewPager2) {
 //    tabLayout.setupWithViewPager(viewPager)
 //}
+
+@BindingAdapter("imageFromUrl",
+    "placeholder","error", "withCrossFade", "requestListener",
+    requireAll = false)
+fun bindImageFromUrl(
+    view: ImageView,
+    imageUrl: String?,
+    placeHolder: Drawable?,
+    error: Drawable?,
+    withCrossFade: Boolean = true,
+    requestListener: RequestListener<Drawable>?
+) {
+    if (!imageUrl.isNullOrEmpty()) {
+        val transitionOptions = if (withCrossFade) {
+            DrawableTransitionOptions().crossFade()
+        } else {
+            DrawableTransitionOptions()
+        }
+        val transition = Glide.with(view.context)
+            .load(imageUrl)
+//            .apply(RequestOptions().override(800, 600))
+            .error(error)
+            .placeholder(placeHolder)
+            .transition(transitionOptions)
+
+        requestListener?.let { transition.listener(it) }
+
+        transition.into(view)
+    }
+}

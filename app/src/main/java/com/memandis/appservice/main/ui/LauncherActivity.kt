@@ -9,10 +9,10 @@ import com.google.firebase.FirebaseOptions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.ktx.initialize
 import com.memandis.appbooking.BookingActivity
-import com.memandis.appnavigation.NavigationViewModel
-import com.memandis.appnavigation.Navigator
-import com.memandis.onboarding.OnboardingActivity
-import com.memandis.project.main.MainActivity
+//import com.memandis.appnavigation.NavigationViewModel
+//import com.memandis.appnavigation.Navigator
+//import com.memandis.onboarding.OnboardingActivity
+//import com.memandis.project.main.MainActivity
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 
@@ -67,7 +67,7 @@ class LauncherActivity : AppCompatActivity() {
 //                        is LaunchNavigatonAction.NavigateToMainActivityAction ->
 //                        startActivity(Intent(this@LauncherActivity, MainActivity::class.java) )
 //                        is LaunchNavigatonAction.NavigateToOnboardingAction ->
-//                        startActivity(Intent(this@LauncherActivity, OnboardingActivity::class.java) )
+ //                       startActivity(Intent(this@LauncherActivity, OnboardingActivity::class.java) )
                  startActivity(Intent(this@LauncherActivity, BookingActivity::class.java) )
 //                    }
 //                    finish()

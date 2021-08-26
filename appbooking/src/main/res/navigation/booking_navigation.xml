@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/booking_navigation"
-    app:startDestination="@id/serviceProvider">
+    app:startDestination="@id/booking">
 
-    <argument android:name="userKey" app:argType="long" />
-    <argument android:name="projectKey" app:argType="long" />
-    <argument android:name="projectParams" app:argType="string"/>
+<!--    <argument android:name="userKey" app:argType="long" />-->
+<!--    <argument android:name="projectKey" app:argType="long" />-->
+<!--    <argument android:name="projectParams" app:argType="string"/>-->
 
 <!--    <include app:graph="@navigation/payment_navigation" />-->
 
@@ -16,11 +16,14 @@
         android:id="@+id/serviceProvider"
         android:name="com.memandis.appbooking.ProviderProfileFragment"
         android:label="Selection"
-        tools:layout="@layout/fragment_provider">
+        tools:layout="@layout/fragment_professional">
 
-        <argument android:name="userKey" app:argType="long" />
-        <argument android:name="projectKey" app:argType="long" />
-        <argument android:name="projectParams" app:argType="string"/>
+<!--        <argument android:name="userKey" -->
+<!--            app:argType="long"/>-->
+<!--        <argument android:name="projectKey" -->
+<!--            app:argType="long" />-->
+<!--        <argument android:name="projectParams" -->
+<!--            app:argType="string"/>-->
 
         <action
             android:id="@+id/action_selection_to_booking"
@@ -35,11 +38,11 @@
         android:label="Booking"
         tools:layout="@layout/fragment_booking">
 
-        <argument android:name="userKey" app:argType="long" />
-        <argument android:name="designerKey" app:argType="long"/>
-        <argument android:name="projectKey" app:argType="long"/>
-        <argument android:name="subscriptionKey" app:argType="long"/>
-        <argument android:name="serviceParams" app:argType="string"/>
+        <argument android:name="userKey" android:defaultValue="0L" app:argType="long" />
+<!--        <argument android:name="designerKey" app:argType="long"/>-->
+<!--        <argument android:name="projectKey" app:argType="long"/>-->
+<!--        <argument android:name="subscriptionKey" app:argType="long"/>-->
+<!--        <argument android:name="serviceParams" app:argType="string"/>-->
 
 <!--        <action-->
 <!--            android:id="@+id/action_booking_to_payment"-->

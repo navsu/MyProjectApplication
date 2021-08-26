@@ -1,10 +1,17 @@
 package com.memandis.remote.datasource.model.booking
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-data class Professional (
+@Parcelize
+class Professional (
 
     val id: Long = 0L,
 
     val providerId: Long,
+
+    val idCompany: Long,
+
+    val name: String?,
 
     val domain: String?,
 
@@ -22,4 +29,4 @@ data class Professional (
 
     val  dataUrl: String?
 
-)
+) : Parcelable

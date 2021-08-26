@@ -85,7 +85,8 @@ class EntryEditorViewModel(application: Application, private val editorEntryId: 
         if(editorEntryId != null && editorEntryId != application.getString(
                         R.string.debug_default_id)) {
             Log.d(LOG_TAG, "Entering Diary Entry Edit Mode... for $editorEntryId")
-            val rx = RxSingleUseCaseProcedure(
+            val rx =
+                RxSingleUseCaseProcedure(
                     DiaryRepo.retrieveAnEntryById(editorEntryId), null)
                     .proceed()
                     .subscribe { data, throwable ->
@@ -111,8 +112,8 @@ class EntryEditorViewModel(application: Application, private val editorEntryId: 
 
                         initializationCompleted = true
 
-                        Log.d(LOG_TAG, "Final Result\n${title.value!!}\n${subtitle.value!!}\n" +
-                                       content.value!!)
+                        Log.d(LOG_TAG, "Final Result\n${title.value!!}\n${subtitle.value!!}\n"
+                                        + content.value!!)
                         Log.d(LOG_TAG, "The Editor has been successfully initialized!")
                     }
 

@@ -14,11 +14,14 @@ data class Slot (
 
     val time: String,
 
-    val slotStatus: SlotStatus
+    val hour: Int,
+
+    var available: Boolean
+//    val slotStatus: SlotStatus
 
 )
 
-enum class SlotStatus {
-    SLOT_ACTIVE,
-    SLOT_INACTIVE
-}
+//enum class SlotStatus {
+//    SLOT_ACTIVE,
+//    SLOT_INACTIVE
+//}

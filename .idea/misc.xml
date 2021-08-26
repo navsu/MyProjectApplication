@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appbooking/src/main/res/layout/activity_schedule.xml" value="0.1" />
+        <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appbooking/src/main/res/layout/available_time_item.xml" value="0.1" />
+        <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appbooking/src/main/res/layout/fragment_booking.xml" value="0.18" />
+        <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appbooking/src/main/res/layout/fragment_provider.xml" value="0.1" />
         <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appbooking/src/main/res/layout/inner_designer_price_info.xml" value="0.1" />
         <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appbooking/src/main/res/layout/inner_designer_profile_info.xml" value="0.1" />
         <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appbooking/src/main/res/layout/item_calender.xml" value="0.1" />
@@ -13,6 +17,8 @@
         <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appbooking/src/main/res/layout/item_provider_pricing.xml" value="0.1" />
         <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appbooking/src/main/res/layout/item_provider_profile.xml" value="0.1" />
         <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appbooking/src/main/res/layout/view_calender.xml" value="0.1" />
+        <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appbooking/src/main/res/layout/widget_schedule.xml" value="0.1" />
+        <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appbooking/src/main/res/layout/widget_schedule_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appmain/src/main/res/layout/activity_entry.xml" value="0.1" />
         <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appmain/src/main/res/layout/activity_location.xml" value="0.18" />
         <entry key="..\:/Users/navee/source/workspace_android/MyProjectApplication/appmain/src/main/res/layout/btm_sheet_entry_edit.xml" value="0.15" />

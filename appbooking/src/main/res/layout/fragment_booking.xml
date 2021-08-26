@@ -5,13 +5,12 @@
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.memandis.appbooking.vm.BookingViewModel" />-->
         <variable
             name="viewModel"
-            type="com.memandis.appbooking.vm.BookingViewModel" />
-
-        <variable
-            name="dateString"
-            type="String" />
+            type="com.memandis.appbooking.scheduling.SchedulingViewModel" />
 
     </data>
 
@@ -32,69 +31,123 @@
         android:layout_height="match_parent"
         app:layout_scrollFlags="scroll|exitUntilCollapsed" >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/designer_calender_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txt_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="@color/blackAlpha75"
+            android:textSize="18sp"
+            android:text="info"/>
 
-<!--        <TextView-->
-<!--            android:id="@+id/monthYearView"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="26dp"-->
-<!--            android:gravity="center"-->
-<!--            android:textSize="16sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textColor="@color/fab_bg"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            tools:text="Aug, 2020"/>-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
 
-<!--            android:visibility="visible"-->
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/booking_calendarView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            tools:listitem="@layout/item_calender"-->
-<!--            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
-<!--            app:layout_constraintLeft_toLeftOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/monthYearView"-->
-<!--            android:clickable="true"-->
-<!--            android:focusable="true"/>-->
-
-            <ScrollView
-                android:id="@+id/booking_calendarScrollView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-<!--                  <com.svayantra.onboarding.ui.booking.calender.CustomCalendarView-->
-<!--                       android:id="@+id/booking_calendarView"-->
-<!--                       android:layout_width="match_parent"-->
-<!--                       android:layout_height="wrap_content"-->
-<!--                       app:layout_constraintStart_toStartOf="parent"-->
-<!--                       app:layout_constraintEnd_toEndOf="parent"-->
-<!--                       app:layout_constraintTop_toTopOf="parent"/>-->
-            </ScrollView>
-        <com.google.android.material.tabs.TabLayout
-                android:id="@+id/designer_booking_tab"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@color/colorAccent"
-                app:tabSelectedTextColor="@android:color/black"
-                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                android:text="@string/available_time_label"
+                android:textColor="@color/blackAlpha75" />
 
-                app:setBookingVm="@{viewModel}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/booking_calendarScrollView"/>
-<!--            app:setBookingTapContents="@{viewModel.tabItems}"-->
-<!--            app:setBookingViewPosition="@{viewModel.tabPosition}"-->
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/et_date_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/blackAlpha75"
+                android:clickable="true"
+                android:focusable="false"
+                android:inputType="none"
+                android:textColor="@color/blackAlpha75"
+                tools:text="24/08/2017" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_available_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            app:schedulingData="@{viewModel.getAvailableSlots()}"
+            tools:listitem="@layout/available_time_item" />
+<!--       -->
+
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:id="@+id/designer_calender_container"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/monthYearView"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginTop="26dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textSize="16sp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textColor="@color/fab_bg"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            tools:text="Aug, 2020"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            android:visibility="visible"&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <androidx.recyclerview.widget.RecyclerView&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/booking_calendarView"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginBottom="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            tools:listitem="@layout/item_calender"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintLeft_toLeftOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintTop_toBottomOf="@id/monthYearView"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:clickable="true"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:focusable="true"/>&ndash;&gt;-->
+
+<!--            <ScrollView-->
+<!--                android:id="@+id/booking_calendarScrollView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent">-->
+<!--&lt;!&ndash;                  <com.svayantra.onboarding.ui.booking.calender.CustomCalendarView&ndash;&gt;-->
+<!--&lt;!&ndash;                       android:id="@+id/booking_calendarView"&ndash;&gt;-->
+<!--&lt;!&ndash;                       android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                       android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                       app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                       app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                       app:layout_constraintTop_toTopOf="parent"/>&ndash;&gt;-->
+<!--            </ScrollView>-->
+<!--            -->
+<!--        <com.google.android.material.tabs.TabLayout-->
+<!--                android:id="@+id/designer_booking_tab"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="bottom"-->
+<!--                android:background="@color/colorAccent"-->
+<!--                app:tabSelectedTextColor="@android:color/black"-->
+<!--                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"-->
+
+<!--                app:setBookingVm="@{viewModel}"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/booking_calendarScrollView"/>-->
+<!--&lt;!&ndash;            app:setBookingTapContents="@{viewModel.tabItems}"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:setBookingViewPosition="@{viewModel.tabPosition}"&ndash;&gt;-->
+<!--            -->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
     </com.google.android.material.appbar.CollapsingToolbarLayout>
 

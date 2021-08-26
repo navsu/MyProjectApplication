@@ -6,7 +6,7 @@
     android:id="@+id/designer_profile_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:showIn="@layout/fragment_provider">
+    tools:showIn="@layout/fragment_professional">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/designer_profile_recycler_view"

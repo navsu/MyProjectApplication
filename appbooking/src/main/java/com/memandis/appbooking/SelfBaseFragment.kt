@@ -33,20 +33,20 @@ abstract class SelfBaseFragment<B : ViewDataBinding> : Fragment() {
     @LayoutRes
     protected abstract fun getLayoutId(): Int
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-//        setBottomNav()
-    }
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+////        setBottomNav()
+//    }
 
-    override fun onResume() {
-        super.onResume()
-//        setBottomNav()
-    }
+//    override fun onResume() {
+//        super.onResume()
+////        setBottomNav()
+//    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-//        binding = null
-    }
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+////        binding = null
+//    }
 
 //    private fun setBottomNav() {
 //        if (activity is MainActivity) {

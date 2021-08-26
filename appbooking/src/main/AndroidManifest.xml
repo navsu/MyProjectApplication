@@ -2,4 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.memandis.appbooking">
 
+<!--    <activity android:name=".activity.CompanyActivity" />-->
+
+<!--    <activity android:name=".activity.SchedulingActivity" />-->
+
+<!--    <receiver-->
+<!--        android:name=".widget.ScheduleWidgetProvider"-->
+<!--        android:label="@string/title_widget_today">-->
+<!--        <intent-filter>-->
+<!--            <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />-->
+<!--            <action android:name="br.alexandrenavarro.scheduling.ACTION_DATA_UPDATED" />-->
+<!--        </intent-filter>-->
+<!--        <meta-data-->
+<!--            android:name="android.appwidget.provider"-->
+<!--            android:resource="@xml/widget_next_schedule" />-->
+<!--    </receiver>-->
+
+<!--    <service-->
+<!--        android:name=".widget.ScheduleWidgetRemoteViewsService"-->
+<!--        android:exported="false"-->
+<!--        android:permission="android.permission.BIND_REMOTEVIEWS" />-->
+
 </manifest>

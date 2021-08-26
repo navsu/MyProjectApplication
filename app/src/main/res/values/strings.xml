@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">MyProjectApplication</string>
-
+    <string name="title_widget_today">Today Schedule</string>
 </resources>

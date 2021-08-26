@@ -14,7 +14,7 @@ import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.memandis.appbooking.binding.*
-import com.memandis.appbooking.databinding.FragmentProviderBinding
+import com.memandis.appbooking.databinding.FragmentProfessionalBinding
 import com.memandis.appbooking.vm.BookingViewModel
 import com.memandis.remote.datasource.model.booking.Professional
 import com.memandis.remote.datasource.model.booking.Subscription
@@ -23,12 +23,12 @@ import java.util.*
 
 //@AndroidEntryPoint
 open class ProviderProfileFragment
-//    : SelfBaseFragment<FragmentProviderBinding>() {
-    : Fragment() {
+    : SelfBaseFragment<FragmentProfessionalBinding>() {
+//    : Fragment() {
 
-    private var _binding: FragmentProviderBinding? = null
+//    private var _binding: FragmentProfessionalBinding? = null
 
-    private val args: ProviderProfileFragmentArgs by navArgs()
+//    private val args: ProviderProfileFragmentArgs by navArgs()
 
     private val MIN_SCALE: Float = 0.75f//    private ViewPager2 viewPager;
 //    private TabLayout designerTabLayout;
@@ -36,24 +36,26 @@ open class ProviderProfileFragment
     private val bookingViewModel: BookingViewModel by viewModels()
 //    private val bookingViewModel by viewModels<BookingViewModel> {  getViewModelFactory() }
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+//    // This property is only valid between onCreateView and
+//    // onDestroyView.
+//    private val binding get() = _binding!!
+//
+//    override fun onCreateView(
+//        inflater: LayoutInflater,
+//        container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        _binding = .inflate(inflater, container, false)
+//
+//        return binding.root
+//    }
+//
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        _binding = null
+//    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentProviderBinding.inflate(inflater, container, false)
-
-        return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+    override fun getLayoutId(): Int {return R.layout.fragment_professional }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -111,11 +113,11 @@ open class ProviderProfileFragment
 //                        }
 //                        val params = item.designer.name
                         val destination = ProviderProfileFragmentDirections.
-                            actionSelectionToBooking(args.userKey,
-                                                     0L,//  item.designer.id,
-                                                     args.projectKey,
-                                                     item.id,
-                                                     " "            //params
+                            actionSelectionToBooking(0L,//args.userKey,
+                                                    // 0L,//  item.designer.id,
+                                                    // 0L,//  args.projectKey,
+                                                   //  item.id,
+                                                   //  " "            //params
                             )
                         with(findNavController()) {
                             currentDestination?.getAction(destination.actionId)?.let {
@@ -190,6 +192,8 @@ open class ProviderProfileFragment
     companion object {
         const val TAG = "ProviderProfileFragment"
     }
+
+
 
 }
 

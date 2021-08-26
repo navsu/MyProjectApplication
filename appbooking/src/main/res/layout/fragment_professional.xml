@@ -74,7 +74,7 @@
             android:id="@+id/designer_price_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:showIn="@layout/fragment_provider">
+            tools:showIn="@layout/fragment_professional">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/designer_booking_recycler_view"
@@ -88,8 +88,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:listitem="@layout/item_provider_pricing"
-
-                tools:context=".ui.booking.ProviderProfileFragment"/>
+                tools:context="com.memandis.appbooking.ProviderProfileFragment"/>
 <!--            app:subscriptionData="@{viewModel.designerSubscriptions}"-->
      </androidx.constraintlayout.widget.ConstraintLayout>
 

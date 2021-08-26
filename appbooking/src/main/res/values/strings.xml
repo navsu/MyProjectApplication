@@ -6,5 +6,6 @@
     <string name="confirm_appointment1">Your appointment is confirmed</string>
     <string name="confirm_appointment2">6:00 PM | Mr. Client</string>
     <string name="confirm_appointment3">Friday, 13 November 2020</string>
-
+    <string name="empty_schedule_list">You have to login to see your schedule!</string>
+    <string name="available_time_label">Available time on:</string>
 </resources>

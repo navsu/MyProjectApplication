@@ -10,11 +10,12 @@ import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.callbackFlow
 import java.util.*
 
-class RealtimeDatabaseRepositoryImpl constructor(private val firebaseDatabaseReference: DatabaseReference)
-    : RealtimeDatabaseRepository {
+class RealtimeDatabaseRepositoryImpl constructor(
+    private val firebaseDatabaseReference: DatabaseReference
+    ): RealtimeDatabaseRepository {
 
     companion object {
-        const val PROJECT_REFERENCE = "projectEntry"
+        const val PROJECT_REFERENCE = "bookingEntry"
     }
 
     @ExperimentalCoroutinesApi

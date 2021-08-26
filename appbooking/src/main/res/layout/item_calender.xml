@@ -29,9 +29,9 @@
         android:layout_gravity="center"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="20dp"
-
-        app:datePressed="@{@color/architecture}"
-        app:dateNormal="@{@color/design}"
+        app:setSelectedDateBackground="@{(viewModel.datePosition.equals(position))}"
+        app:datePressed="@{@color/purple_200}"
+        app:dateNormal="@{@color/teal_200}"
 
         app:cardCornerRadius="4dp">
 

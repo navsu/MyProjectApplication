@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.memandis.remote.datasource.model.booking.Slot" />
+
+        <variable
+            name="position"
+            type="int" />
+
+        <variable
+            name="clickListener"
+            type="com.memandis.appbooking.scheduling.SchedulingListener" />
+    </data>
+
+<!--<RelativeLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+
+<!--    android:clickable="true"-->
+<!--    android:focusable="true"-->
+<!--    android:gravity="center"-->
+<!--    android:orientation="vertical"-->
+<!--    android:padding="6dp">-->
+
+<!--    android:background="?attr/selectableItemBackground"-->
+<!--    <TextView-->
+<!--        android:id="@+id/txt_available_time"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textStyle="bold"-->
+<!--        tools:text="itemhour"-->
+<!--        android:textColor="@color/blackAlpha75"/>-->
+<!--&lt;!&ndash;    tools:text="13:00 pm"&ndash;&gt;-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/txt_available"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_marginLeft="8dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_toEndOf="@+id/txt_available_time"-->
+<!--        android:layout_toRightOf="@+id/txt_available_time"-->
+<!--        android:textSize="12sp"-->
+<!--        tools:text="available"-->
+<!--        tools:textColor="@android:color/holo_red_dark" />-->
+<!--&lt;!&ndash;    android:text="@{(item.available)}"&ndash;&gt;-->
+
+<!--</RelativeLayout>-->
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <!--    app:cardBackgroundColor="@color/architecture"-->
+        <!--    tools:showIn="@layout/fragment_client"-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/serviceImageView"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+
+                app:placeholder="@{@drawable/photo}"
+                app:error="@{@drawable/photo}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/photo" />
+
+            <TextView
+                android:id="@+id/txt_available_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginTop="15dp"
+                android:text="item"
+                android:gravity="left"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textSize="25sp"
+                android:textColor="@color/Blue100"
+                app:layout_constraintStart_toEndOf="@+id/serviceImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+<!--            android:text="@{item.hour}"-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
